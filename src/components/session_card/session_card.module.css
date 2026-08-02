@@ -1,0 +1,50 @@
+.card {
+    padding: clamp(0.5rem, 2vw, 1rem);
+    border-radius: 1.5rem;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-layer-1);
+
+    display: grid;
+    align-items: center;
+    gap: clamp(0.5rem, 3vw, 1rem);
+    grid-template-columns: 30% auto;
+
+    font-family: var(--font-family);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    background-color: var(--color-bg);
+}
+
+.gameInfo {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.25rem, 1vw, 0.5rem);
+    overflow-y: hidden;
+}
+
+
+.gameInfo h1 {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    font-weight: 400;
+    margin: 0;
+}
+
+.gameInfo p{
+    font-size: clamp(0.7rem, 2vw, 0.8rem);
+    font-weight: 200;
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+.avatarStack {
+    display: flex;
+    align-items: center;
+}
+
+.avatarStack > * + * {
+    margin-left: -5px;
+}

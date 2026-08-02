@@ -1,0 +1,40 @@
+.scoreTracker {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 1rem;
+    padding: 1rem 0 0 0;
+}
+
+.actions button {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-primary);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+
+.scoreDisplay {
+    height: clamp(2rem, 12vw, 5.5rem);
+    aspect-ratio: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.chartSection {
+    display: flex;
+    flex-direction: column;
+}

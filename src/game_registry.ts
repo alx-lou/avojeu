@@ -1,0 +1,55 @@
+import type { Game } from "./types/game"
+
+export const GAMES_LIST: Game[] = [
+    {
+        id: "flip7",
+        name: "Flip7",
+        shortDescription: "Draw cards to score but don't be too greedy!",
+        description: "In this game you draw cards to score points. You can stop whenever you want. You bust if you draw a card you already have. You then lose all your points for the round and stop playing until the next round. The first player to reach 200 points wins.",
+        coverPath: "/avojeu/covers/flip7.jpg",
+        tags: ["Card"],
+        color: "#65bbc3",
+        minPlayers: 3,
+        tools: ["flip7_score_tracker", "graph"],
+    }, {
+        id: "flip7vengeance",
+        name: "Flip7 Vengeance",
+        shortDescription: "Flip7... but worse: negatives and special cards made for war.",
+        description: "Same rules as Flip7. You draw cards to score and stop whenever you want. If you bust by having a card you already drew, you lose all your points for the round. This time, special cards and bonuses are made for upsetting your friends.",
+        coverPath: "/avojeu/covers/flip7_vengeance.png",
+        tags: ["Card"],
+        color: "#0F73AA",
+        minPlayers: 3,
+        tools: ["flip7_score_tracker", "graph"],
+    }, {
+        id: "codename",
+        name: "Codename",
+        shortDescription: "Cooperate with your partner to find your team's words.",
+        description: "Codename is a cooperative game where teams should find their assigned words in a 5x5 grid. One team member provides clues and the others try to guess which words on the grid are related. Among those 25 words, some are neutral and there is one blacklisted word that makes the team lose if pointed out.",
+        coverPath: "/avojeu/covers/codename.jpg",
+        tags: ["Coop"],
+        color: "#b55837",
+        minPlayers: 4,
+        tools: ["codename_team_sorter", "timer"],
+    },{
+        id: "dofus",
+        name: "Dofus",
+        shortDescription: "No tool for this one. Just a little add to draw people in :)",
+        description: "Dofus is an MMORPG where you dive into a fantasy world with its own unique atmosphere. It's a strategic turn-based game where you explore the world seeking legendary items.",
+        coverPath: "/avojeu/covers/dofus.jpg",
+        tags: ["mmorpg"],
+        color: "#72b624",
+        minPlayers: 1,
+        tools: [],
+    },{
+        id: "classics",
+        name: "Classics",
+        shortDescription: "Common tools: timer, dice, score tracker, team sorter, ...",
+        description: "Select players and access a set of common tools. They are classical tools not designed for any specific game. You'll find timers, a score tracker, graphs, a team sorter, and a dice roller.",
+        coverPath: "/avojeu/app_icon.svg",
+        tags: [],
+        color: "#c3b865",
+        minPlayers: 1,
+        tools: ["team_sorter", "score_tracker", "graph", "timer", "dice_roller"],
+    }
+]
