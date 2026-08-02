@@ -1,0 +1,22 @@
+.profilePicture {
+    border-radius: 50%;
+    border: 2px solid var(--player-color);
+    background-color: color-mix(
+        in srgb,
+        var(--player-color) 30%,
+        transparent
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: clamp(1.5rem, 10vw, 5.5rem);
+    aspect-ratio: 1;
+    flex-shrink: 0;
+}
+
+.avatar {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    line-height: 1;
+}

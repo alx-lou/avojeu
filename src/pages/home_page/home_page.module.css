@@ -1,0 +1,81 @@
+.page {
+    background-color: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    font-family: var(--primary-font);
+}
+
+
+.header {
+    display: grid;
+    grid-template-columns: auto 35%;
+    align-items: center;
+    gap: 2rem;
+    flex-shrink: 0;
+    margin: 2rem 0 0.5rem 0;
+    padding: 0 0 0 1rem;
+}
+
+.header p {
+    color: var(--color-text);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.playerButton {
+    background-color: var(--color-layer-1);
+    padding: 1rem;
+    border: none;
+    border-radius: 50px 0 0 50px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    font-family: var(--primary-font);
+    font-size: 1rem;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.playerButton img {
+    width: 3rem;
+    height: 3rem;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    overflow-y: auto;
+
+}
+
+.sectionTitle {
+    margin: 1rem 0;
+}
+
+.activeSession {
+    display: flex;
+    flex-direction: column;
+}
+
+.gameList {
+    display: flex;
+    flex-direction: column;
+}
+
+.listContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.cardLink {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}

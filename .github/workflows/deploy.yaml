@@ -1,0 +1,60 @@
+name: Deploy Avojeu on pages
+
+on:
+  # Trigger workflow on new tag push
+  push:
+    tags:
+      - "v*"
+  # Manual trigger from user
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to deploy"
+        required: true
+        type: string
+  
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "deploy-pages"
+  cancel-in-progress: true
+
+jobs: 
+  build: 
+    runs-on: ubuntu:latest
+    steps:
+      - name: Checkout tagged release
+        uses: actions/checkout@v4
+        with: 
+          ref: ${{ github.event.inputs.tag || github.ref_name }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with: 
+          node-version: 22
+          cache: npm 
+      - name: Install dependencies 
+        run: npm ci
+      - name: Build application
+        env:
+          VITE_AVOJEUX_VERSION: ${{ github.event.inputs.tag || github.ref_name }}
+        run: npm run build
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with: 
+          path: ./dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: 
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps: 
+      - name: Deploy to github Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

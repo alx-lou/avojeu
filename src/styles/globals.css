@@ -1,0 +1,44 @@
+:root {
+  --color-bg: #0F1217;
+  --color-layer-1: #191E26;
+  --color-border: #333A45;
+  --color-input-bg: #0B0E12;
+
+  --color-primary: #FF9F1A;
+  --color-secondary: #ff941a;
+
+  --user-profile-orange: #FF9F1A;
+  --user-profile-blue: #1affe0;
+  --user-profile-green: #6aff1a;
+  --user-profile-purple: #a31aff;
+  --user-profile-red: #ff2d1a;
+
+  --color-text: #efefef;
+  --color-secondary-text: #b0b0b0;
+
+  --color-tag-player: #3ec4d9;
+  --color-tag-kind: #52c844;
+  --color-tag-medium: #9d44d0;
+
+
+  --primary-font: 'MuseoModerno', sans-serif;
+
+  color-scheme: light dark;
+  
+  padding: 0;
+  margin: 0;
+  
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    background-color: var(--color-bg);
+}

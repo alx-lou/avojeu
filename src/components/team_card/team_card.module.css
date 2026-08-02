@@ -1,0 +1,22 @@
+.teamCard {
+    padding: 0.5rem;
+    font-family: var(--primary-font);
+    display:flex;
+    flex-direction: column; 
+    gap: 0.5rem;
+}
+
+.teamName {
+    font-weight: 400;
+    font-size: clamp(0.8rem,1vw, 1rem);
+    margin: 0.5rem 0;
+}
+
+.teamComposition {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+
+    justify-content: center;
+    align-content: center;
+}

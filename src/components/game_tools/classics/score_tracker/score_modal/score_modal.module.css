@@ -1,0 +1,70 @@
+.modalBackdrop {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+
+    font-family: var(--primary-font);
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    width: 90%;
+    max-width: 500px;
+    max-height: 85vh;
+
+    padding: 1rem;
+    margin: 2rem;
+
+    border-radius: 12px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+
+    font-family: var(--font-primary);
+}
+
+.modal h1 {
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.listContainer {
+    overflow-y: auto;
+}
+
+.scoreInput {
+    background-color: var(--color-input-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 50px;
+
+    max-width: 3rem;
+    padding: 5px;
+    font-family: var(--primary-font);
+}
+
+.actionPanel{
+    display: grid;
+    grid-template-columns: 30% auto;
+    gap: 1rem;
+}
+
+.action {
+    background-color: var(--color-input-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-primary);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

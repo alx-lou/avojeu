@@ -1,0 +1,10 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    
+    font-family: var(--primary-font);
+    color: var(--color-text);
+    font-size: 0.6rem;
+    padding: clamp(0.5rem, 2vw, 1rem);
+}
