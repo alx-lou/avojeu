@@ -20,7 +20,7 @@ export default defineConfig({
             short_name: 'Avojeu',
             description: 'Board game utils app',
             display: "standalone",
-            theme_color: '#FF9F1A',
+            theme_color: '#0F1217',
             background_color: "#0F1217",
             start_url: "/avojeu/",
             scope: "/avojeu/",

@@ -7,21 +7,9 @@
   --color-primary: #FF9F1A;
   --color-secondary: #ff941a;
 
-  --user-profile-orange: #FF9F1A;
-  --user-profile-blue: #1affe0;
-  --user-profile-green: #6aff1a;
-  --user-profile-purple: #a31aff;
-  --user-profile-red: #ff2d1a;
-
+  --primary-font: 'MuseoModerno', sans-serif;
   --color-text: #efefef;
   --color-secondary-text: #b0b0b0;
-
-  --color-tag-player: #3ec4d9;
-  --color-tag-kind: #52c844;
-  --color-tag-medium: #9d44d0;
-
-
-  --primary-font: 'MuseoModerno', sans-serif;
 
   color-scheme: light dark;
   
@@ -30,6 +18,8 @@
   
   line-height: 1.5;
   font-weight: 400;
+  color: var(--color-text);
+  font-family: var(--primary-font);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -41,4 +31,18 @@ html, body {
     margin: 0;
     height: 100%;
     background-color: var(--color-bg);
+}
+
+html {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    max-width: 700px;
+}
+
+a {
+    text-decoration: none;
 }
