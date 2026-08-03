@@ -4,50 +4,6 @@
     gap: 1rem;
 }
 
-.teamCount {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.teamCount h1 {
-    font-size: clamp(0.8rem,1vw, 1rem);
-    font-weight: 200;
-    margin: 0;
-}
-
-.counter {
-    display: grid;
-    grid-template-columns: 20% auto 20%;
-    align-items: center;
-}
-
-.counter button {
-    background-color: var(--color-input-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 25px;
-    padding: 0.5rem 1rem;
-    font-family: var(--font-primary);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .generationButton {
-    background-color: var(--color-layer-1);
-    border: 1px solid var(--color-border);
-    border-radius: 25px;
     padding: 0.5rem 1rem;
-    font-family: var(--font-primary);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.counter p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }

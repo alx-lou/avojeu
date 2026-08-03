@@ -3,6 +3,7 @@ import type { Teams } from "../../../../types/game_states";
 import type { GameSession } from "../../../../types/session";
 import { FadeInTransition } from "../../../transition/transitions";
 import { TeamCard } from "../../../team_card/team_card";
+import { saveActiveSession } from "../../../../utils/session_storage";
 import {
   buildTeams,
   clampTeamCount,
@@ -11,7 +12,7 @@ import {
   shufflePlayers,
 } from "../../../../utils/classical_tools";
 import styles from "./team_sorter.module.css";
-import { saveActiveSession } from "../../../../utils/session_storage";
+import commonStyles from "../../../../styles/common.module.css";
 
 type TeamGeneratorProps = {
   gameSession: GameSession;
@@ -56,18 +57,31 @@ export function TeamGenerator({ gameSession }: TeamGeneratorProps) {
         <FadeInTransition>
             <div className={styles.teamGenerator}>
                 <section className={styles.teamCount}>
-                    <h1>Number of teams</h1>
+                    <h1 className={commonStyles.title}>
+                        Number of teams
+                    </h1>
                     <div className={styles.counter}>
-                        <button onClick={decreaseTeams} disabled={teamCount <= minCount}>
+                        <button 
+                            className={`${commonStyles.secondaryButton} 
+                                        ${styles.teamCountButton}`} 
+                            onClick={decreaseTeams}
+                            disabled={teamCount <= minCount}>
                             -
                         </button>
-                        <p>{teamCount} team{teamCount > 1 ? "s" : ""}</p>
-                        <button onClick={increaseTeams} disabled={teamCount >= maxCount}>
+                        <p className={commonStyles.flexCenter}>
+                            {teamCount} team{teamCount > 1 ? "s" : ""}
+                        </p>
+                        <button 
+                            className={`${commonStyles.secondaryButton}
+                                        ${styles.teamCountButton}`} 
+                            onClick={increaseTeams} 
+                            disabled={teamCount >= maxCount}>
                             +
                         </button>
                     </div>
                     <button
-                        className={styles.generationButton}
+                        className={`${commonStyles.primaryButton} 
+                                    ${styles.generationButton}`}
                         onClick={generateTeams}
                         disabled={playerCount === 0}
                     >

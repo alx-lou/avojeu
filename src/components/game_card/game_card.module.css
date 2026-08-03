@@ -3,12 +3,10 @@
     border-radius: 1.5rem;
     border: 1px solid var(--color-border);
     background-color: var(--color-layer-1);
-
     display: grid;
     align-items: center;
     gap: clamp(0.5rem, 3vw, 1rem);
     grid-template-columns: 30% auto;
-
     font-family: var(--font-family);
 }
 
@@ -31,16 +29,16 @@
     gap: 5px
 }
 
-.gameInfo h1 {
+/* .gameInfo h1 {
     font-size: clamp(1rem, 3vw, 1.3rem);
     font-weight: 400;
     margin: 0;
-}
+} */
 
 .description{
     font-size: clamp(0.7rem, 2vw, 0.8rem);
-    font-weight: 200;
-    color: var(--color-text-secondary);
+    font-weight: var(--light-weight-text);
+    color: var(--text-secondary);
     margin: 0;
 }
 

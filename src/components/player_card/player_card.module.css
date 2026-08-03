@@ -1,48 +1,27 @@
 .card {
-  padding: clamp(0.5rem, 2vw, 1rem);
-  border-radius: 25px;
-  border: 1px solid var(--color-border);
-  background-color: var(--color-layer-1);
+    padding: clamp(0.5rem, 2vw, 1rem);
+    border-radius: 25px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-layer-1);
 
-  display: grid;
-  align-items: center;
-  gap: clamp(0.5rem, 3vw, 1rem);
-  grid-template-columns: auto minmax(0, 1fr) auto;
+    display: grid;
+    align-items: center;
+    gap: clamp(0.5rem, 3vw, 1rem);
+    grid-template-columns: auto minmax(0, 1fr) auto;
 }
 
 .name {
-  font-size: clamp(1rem, 4vw, 1.5rem);
-  font-weight: 400;
-  color: var(--text-primary);
-  font-family: var(--primary-font);
-  word-break: break-word;
-  min-width: 0;
+    font-size: var(--medium-size-text);
+    font-weight: var(--medium-weight-text);
+    color: var(--text-primary);
+    word-break: break-word;
 }
 
 .actions {
-  justify-self: end;
+    justify-self: end;
 }
 
-/* Mobile screens */
-@media (max-width: 480px) {
-  .card {
+.card {
     grid-template-columns: auto minmax(0, 1fr) auto;
     gap: 0.5rem;
-  }
-}
-
-/* Tablet screens */
-@media (min-width: 768px) {
-  .card {
-    max-width: 85%;
-    border-radius: 1.75rem;
-  }
-}
-
-/* Desktop screens */
-@media (min-width: 1024px) {
-  .card {
-    max-width: 80%;
-    border-radius: 2rem;
-  }
 }

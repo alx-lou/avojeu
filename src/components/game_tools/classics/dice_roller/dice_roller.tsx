@@ -1,7 +1,7 @@
 import { FadeInTransition } from "../../../transition/transitions"
 import { useState } from "react";
+import commonStyles from "../../../../styles/common.module.css"
 import styles from "./dice_roller.module.css"
-
 import diceIcon from "../../../../assets/icons/dice.svg"
 
 const DICE = [4, 6, 8, 10, 12, 20];
@@ -27,14 +27,16 @@ export function DiceRoller() {
     return (
         <FadeInTransition>
         <div className={styles.diceRoller}>
-            <section>
-                <p>Dice selector</p>
-                <div className={styles.diceSelector}>
+            <section className={styles.diceSelector}>
+                <h1 className={commonStyles.title}>Dice selector</h1>
+                <div className={styles.diceList}>
                     {DICE.map((sides) => (
                         <button
                             key={sides}
                             type="button"
-                            className={selectedSides === sides ? styles.selected : ""}
+                            className={`${commonStyles.secondaryButton} 
+                                        ${styles.diceSelectorButton}
+                                        ${selectedSides === sides ? styles.selected : ""}`}
                             onClick={() => setSelectedSides(sides)}
                         >
                             D{sides}
@@ -44,7 +46,8 @@ export function DiceRoller() {
             </section>
 
             <section className={styles.resultArea}>
-                <p className={styles.result}>
+                <p className={`${commonStyles.flexCenter} 
+                               ${styles.result}`}>
                     {result}
                     {rolling && (
                             <img
@@ -54,7 +57,11 @@ export function DiceRoller() {
                             />
                     )}
                 </p>
-                <button type="button" onClick={() => rollDice(selectedSides)}>
+                <button 
+                    className={`${commonStyles.primaryButton} 
+                                ${styles.rollButton}`} 
+                    type="button" 
+                    onClick={() => rollDice(selectedSides)}>
                     Roll
                 </button>
             </section>

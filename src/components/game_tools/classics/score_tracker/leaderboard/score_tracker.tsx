@@ -4,10 +4,10 @@ import { FadeInTransition } from "../../../../transition/transitions"
 import { PlayerCard } from "../../../../player_card/player_card"
 import { List } from "../../../../list/list"
 import { ScoreModal } from "../score_modal/score_modal"
-import styles from "./score_tracker.module.css"
 import { saveActiveSession } from "../../../../../utils/session_storage"
 import type { GameState, RoundScores } from "../../../../../types/game_states"
-
+import commonStyles from "../../../../../styles/common.module.css"
+import styles from "./score_tracker.module.css"
 
 type PlayerScoreProps = {
     playerScore: number
@@ -64,7 +64,12 @@ export function ScoreTracker(
         <FadeInTransition>
             <div className={styles.scoreTracker}>
                 <section className={styles.actions}>
-                    <button onClick={() => setScoreModalOpen(true)}>+ Start round</button>
+                    <button 
+                        className={`${commonStyles.secondaryButton}
+                                    ${styles.newRoundButton}`}
+                        onClick={() => setScoreModalOpen(true)}>
+                        + Start round
+                    </button>
                 </section>
                 <section className={styles.leaderboard}>
                     <List 

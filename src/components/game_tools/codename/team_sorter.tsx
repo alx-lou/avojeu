@@ -5,11 +5,12 @@ import { FadeInTransition } from "../../transition/transitions";
 import { TeamCard } from "../../team_card/team_card";
 import { shufflePlayers } from "../../../utils/classical_tools";
 import { buildCodenameTeams } from "../../../utils/codename";
-import styles from "./team_sorter.module.css";
 import { saveActiveSession } from "../../../utils/session_storage";
+import commonStyles from "../../../styles/common.module.css";
+import styles from "./team_sorter.module.css";
 
 type TeamGeneratorProps = {
-  gameSession: GameSession;
+    gameSession: GameSession;
 }
 
 export function CodenameTeamGenerator({ gameSession }: TeamGeneratorProps) {
@@ -36,9 +37,8 @@ export function CodenameTeamGenerator({ gameSession }: TeamGeneratorProps) {
         <FadeInTransition>
             <div className={styles.teamGenerator}>
                 <button
-                    className={styles.generationButton}
-                    onClick={generateTeams}
-                >
+                    className={`${commonStyles.primaryButton} ${styles.generationButton}`}
+                    onClick={generateTeams}>
                     Generate
                 </button>
                 <section>

@@ -2,26 +2,23 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
-
-    font-family: var(--primary-font)
 }
 
 .diceSelector {
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-.diceSelector button {
+.diceList {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+}
 
+.diceSelectorButton {
     height: 2.5rem;
     width: 2.5rem;
-
-    background-color: var(--color-bg);
-    border: 1px solid var(--color-border);
     border-radius: 50%
 }
 
@@ -39,31 +36,17 @@
 .result {
     height: 10rem;
     width: 10rem;
-
     border: 3px solid var(--color-border);
     border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     font-size: 4rem;
     font-weight: 400;
+    margin:1rem;
 }
 
-.resultArea button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+.rollButton {
     width: 10rem;
     height: 3rem;
-
-    background-color: var(--color-layer-1);
-    border: 1px solid var(--color-border);
     border-radius: 15px;
-
-    font-family: var(--primary-font)
 }
 
 .dice {

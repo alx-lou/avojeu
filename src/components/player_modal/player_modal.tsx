@@ -3,6 +3,8 @@ import { addPlayer, updatePlayer } from "../../utils/player_storage";
 import { useEffect, useState } from "react";
 import { FadeInTransition } from "../transition/transitions";
 import type { Player } from "../../types/player";
+import modalStyles from "../../styles/modal.module.css";
+import commonStyles from "../../styles/common.module.css";
 import styles from "./player_modal.module.css";
 
 type PlayerFormModalProps = {
@@ -82,14 +84,16 @@ export function PlayerFormModal(
 
     return (
         <FadeInTransition>
-            <div className={styles.modalBackdrop} onClick={onClose}>
+            <div className={modalStyles.modalBackdrop} onClick={onClose}>
                 <div
-                    className={styles.modal}
+                    className={modalStyles.modalBase}
                     onClick={(e) => e.stopPropagation()}
                 >
 
-                    <h1>{player ? "Edit Player" : "Create Player"}</h1>
-                    
+                    <h1 className={modalStyles.modalTitle}>
+                        {player ? "Edit Player" : "Create Player"}
+                    </h1>
+
                     <PlayerCard 
                         player={{
                             id: "preview",
@@ -99,18 +103,20 @@ export function PlayerFormModal(
                         }}
                     />
 
-                    <h2 className={styles.inputTitle}>
+                    <h2 className={commonStyles.subTitle}>
                         Name
                     </h2>
                     
                     <input
+                        className={`${commonStyles.textInputField} 
+                                    ${styles.nameInput}`}
                         type="text"
                         placeholder="Player name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
 
-                    <h2 className={styles.inputTitle}>
+                    <h2 className={commonStyles.subTitle}>
                         Color
                     </h2>
 
@@ -129,7 +135,7 @@ export function PlayerFormModal(
                         ))}
                     </div>
 
-                    <h2 className={styles.inputTitle}>
+                    <h2 className={commonStyles.subTitle}>
                         Avatar
                     </h2>
 
@@ -138,11 +144,11 @@ export function PlayerFormModal(
                         {AVATARS.map((a) => (
                             <button
                                 key={a}
-                                className={
-                                    avatar === a
-                                        ? `${styles.avatarOption} ${styles.selected}`
-                                        : styles.avatarOption
-                                }
+                                className={`${commonStyles.flexCenter}}
+                                            ${avatar === a
+                                                ? `${styles.avatarOption} ${styles.selected}`
+                                                : styles.avatarOption
+                                            }`}
                                 onClick={() => setAvatar(a)}
                             >
                                 {a}
@@ -151,11 +157,11 @@ export function PlayerFormModal(
                     </div>
 
                     <div className={styles.actionPanel}>
-                        <button className={styles.action} onClick={onClose}>
+                        <button className={commonStyles.primaryButton} onClick={onClose}>
                             Cancel
                         </button>
 
-                        <button className={styles.action} onClick={handleSave}>
+                        <button className={commonStyles.primaryButton} onClick={handleSave}>
                             Save
                         </button>
                     </div>

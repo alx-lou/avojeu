@@ -10,6 +10,7 @@ import {
 import { buildScoreChartSeries, type GraphPoint, type GraphSeries } from "../../../../utils/classical_tools";
 import type { CSSProperties } from "react";
 import type { GameSession } from "../../../../types/session"
+import commonStyles from "../../../../styles/common.module.css"
 import styles from "./line_chart.module.css";
 
 type LineChartProps = {
@@ -51,7 +52,9 @@ export function LineChartCard({ gameSession }: LineChartProps) {
     return (
         <div className={styles.chartCard}>
             <div className={styles.chartHeader}>
-                <h3>Score history</h3>
+                <h1 className={commonStyles.title}>
+                    Score history
+                </h1>
                 <p>Round by round view</p>
             </div>
             <div className={styles.chartWrapper}>
