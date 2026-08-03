@@ -23,16 +23,18 @@
 }
 
 .cardPanel {
-    display:grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
     align-items: center;
     justify-items: center;
     margin-top: 1rem;
-    gap: 3px;
+    gap: 5px;
+    width: 100%;
 }
 
 .cardButton {
-    height: clamp(3rem, 3.5rem, 4rem);
+    min-width: 2rem;
+    min-width: 3rem;
     aspect-ratio: 5/7;
     border-radius: 10px;
     padding: 0.4rem;

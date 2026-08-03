@@ -18,9 +18,10 @@
     background: var(--color-bg);
     border: 1px solid var(--color-border);
     font-family: var(--font-primary);
-    width: 90%;
-    max-width: 500px;
+    width: min(90vw, 500px);
+    max-width: calc(100vw - 2rem);
     max-height: 85vh;
+    box-sizing: border-box;
 }
 
 .modalTitle {
