@@ -3,9 +3,10 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { FadeInTransition } from "../../components/transition/transitions";
 import { gameToolRegistry } from "../../component_registry";
 import { getActiveSession, closeActiveSession } from "../../utils/session_storage";
+import { ROUTES } from "../../routes/routes";
+import type { AppError } from "../../types/error";
 import HomeIcon from "../../assets/icons/home.svg"
 import styles from "./session_page.module.css";
-import type { AppError } from "../../types/error";
 
 
 export function SessionPage() {
@@ -25,7 +26,7 @@ export function SessionPage() {
     }, [gameSession]);
 
     const handleFinishSession = () => {
-        navigate("/avojeu/")
+        navigate(ROUTES.HOME)
         closeActiveSession()
     };
 
@@ -35,7 +36,7 @@ export function SessionPage() {
                 message: "The session you are looking does not exist."
             }
         return (
-            <Navigate to="/avojeu/error" replace state={error}/>
+            <Navigate to={ROUTES.ERROR} replace state={error}/>
         )
     }
 
@@ -54,7 +55,7 @@ export function SessionPage() {
             <div className={styles.page}>
                 <header className={styles.header}>
                     <h1>{gameSession.game.name}</h1>
-                    <button type="button" onClick={() => navigate("/avojeu/")}>
+                    <button type="button" onClick={() => navigate(ROUTES.HOME)}>
                         <img src={HomeIcon} alt="home" />
                     </button>
                     <button type="button" onClick={handleFinishSession}>

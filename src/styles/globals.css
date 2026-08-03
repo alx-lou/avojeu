@@ -33,12 +33,6 @@ html, body {
     background-color: var(--color-bg);
 }
 
-html {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 body {
     max-width: 700px;
 }

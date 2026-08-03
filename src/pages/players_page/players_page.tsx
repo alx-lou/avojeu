@@ -3,10 +3,9 @@ import { PlayerCard } from "../../components/player_card/player_card";
 import { PlayerEditMenu } from "../../components/player_edit_menu/player_edit_menu";
 import { PlayerFormModal } from "../../components/player_modal/player_modal";
 import { FadeInTransition } from "../../components/transition/transitions";
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { ROUTES } from "../../routes/routes";
 import styles from "./players_page.module.css";
 import gameIcon from "../../assets/icons/game.svg";
 import type { Player } from "../../types/player";
@@ -46,7 +45,7 @@ export function PlayersPage() {
             <div className={styles.page}>
 
                 <header className={styles.header}>
-                    <Link to="/avojeu/" className={styles.gameButton}>
+                    <Link to={ROUTES.HOME} className={styles.gameButton}>
                         <img src={gameIcon} alt="Game" />
                         Games
                     </Link>
