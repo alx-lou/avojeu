@@ -4,6 +4,8 @@ import { PlayerCard } from "../../../../player_card/player_card";
 import { List } from "../../../../list/list";
 import type { Player } from "../../../../../types/player";
 import type { RoundScores } from "../../../../../types/game_states";
+import commonStyles from "../../../../../styles/common.module.css"
+import modalStyles from "../../../../../styles/modal.module.css"
 import styles from "./score_modal.module.css";
 
 type ScoreModalProps = {
@@ -49,15 +51,17 @@ export function ScoreModal({
     return (
         <FadeInTransition>
             <div
-                className={styles.modalBackdrop}
+                className={modalStyles.modalBackdrop}
                 onClick={onClose}
             >
-                <form 
+                <form
                     onSubmit={handleSubmit}
-                    className={styles.modal}
+                    className={modalStyles.modalBase}
                     onClick={(e) => e.stopPropagation()}
                 >
-                    <h1>Enter round results</h1>
+                    <h1 className={modalStyles.modalTitle}>
+                        Enter round results
+                    </h1>
 
                     <section className={styles.listContainer}>
                         <List
@@ -69,7 +73,8 @@ export function ScoreModal({
                                     showActions={false}
                                     extraCardContent={
                                         <input
-                                        className={styles.scoreInput}
+                                            className={`${commonStyles.textInputField}
+                                                        ${styles.scoreInput}`}
                                             type="number"
                                             placeholder="0"
                                             onChange={(e) =>
@@ -88,16 +93,16 @@ export function ScoreModal({
                     <section className={styles.actionPanel}>
                         <button
                             type="button"
-                            className={styles.action}
-                            onClick={onClose}
-                        >
+                            className={`${commonStyles.secondaryButton}
+                                        ${styles.action}`}
+                            onClick={onClose}>
                             Cancel
                         </button>
 
                         <button
                             type="submit"
-                            className={styles.action}
-                        >
+                            className={`${commonStyles.secondaryButton}
+                                        ${styles.action}`}>
                             Save
                         </button>
                     </section>

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 import { FadeInTransition } from "../../components/transition/transitions";
 import styles from "./home_page.module.css";
 import playerIcon from "../../assets/icons/user.svg";
-
+import { routePaths, ROUTES } from "../../routes/routes";
 import { GAMES_LIST } from "../../game_registry";
 import { getActiveSession } from "../../utils/session_storage";
 
@@ -21,7 +21,7 @@ export function HomePage(){
                 <p className={styles.title}>
                     What are we <span style={{ color: "var(--color-primary)" }}>playing</span>  today ?
                 </p>
-                <Link to={"/avojeu/players"} className={styles.playerButton}>
+                <Link to={ROUTES.PLAYERS} className={styles.playerButton}>
                         <img src={playerIcon} alt="Player" />
                         Players
                 </Link>
@@ -34,7 +34,7 @@ export function HomePage(){
                             Resume
                         </summary>
                         <section className={styles.activeSession}>
-                            <Link to={`/avojeu/session/${activeSession.id}`} 
+                            <Link to={routePaths.session(activeSession.id)}
                                   state={{ gameSession: activeSession }} 
                                   className={styles.cardLink}>
                                 <SessionCard gameSession={activeSession}/>
@@ -49,9 +49,9 @@ export function HomePage(){
                         <List
                             items={GAMES_LIST}
                             renderItem={(game) => (
-                                <Link to={`/avojeu/game/${game.id}`} 
-                                      state={{ game }} 
-                                      key={game.id} 
+                                <Link to={routePaths.game(game.id)}
+                                      state={{ game }}
+                                      key={game.id}
                                       className={styles.cardLink}>
                                     <GameCard
                                         game={game}

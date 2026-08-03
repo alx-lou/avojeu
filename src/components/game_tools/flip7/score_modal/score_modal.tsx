@@ -9,6 +9,8 @@ import { FadeInTransition } from "../../../transition/transitions";
 import type { Player } from "../../../../types/player";
 import type { RoundScores } from "../../../../types/game_states";
 
+import commonStyles from "../../../../styles/common.module.css"
+import modalStyles from "../../../../styles/modal.module.css"
 import styles from "./score_modal.module.css"
 
 type FlipScoreModalProps = {
@@ -106,14 +108,14 @@ export function FlipScoreModal(
 
     return (
         <FadeInTransition>
-            <div className={styles.modalBackdrop} onClick={onClose}>
+            <div className={modalStyles.modalBackdrop} onClick={onClose}>
                 <div
-                    className={styles.modal}
+                    className={modalStyles.modalBase}
                     onClick={(e) => e.stopPropagation()}
                 >
 
                     <div className={styles.scoreEditor}>
-                        <h1 className={styles.playerName}>
+                        <h1 className={commonStyles.title}>
                             {player.name}
                         </h1>
                         <div className={styles.scorePanel}>
@@ -123,7 +125,7 @@ export function FlipScoreModal(
                                 pattern="[0-9]*"
                                 placeholder="0"
                                 value={inputValue}
-                                className={styles.scoreInput}
+                                className={commonStyles.textInputField}
                                 onChange={e => {
                                     const value = e.target.value;
                                     if (!/^\d*$/.test(value)) {return;}
@@ -134,13 +136,16 @@ export function FlipScoreModal(
                                     updateScore(Number(value));
                                 }}
                             />
-                            <button className={styles.saveButton} onClick={validatePlayer}>
+                            <button 
+                                className={`${commonStyles.primaryButton} 
+                                            ${styles.saveButton}`}
+                                onClick={validatePlayer}>
                                 Ok
                             </button>
                         </div>
 
                         <details open>
-                            <summary className={styles.panelTitle}>
+                            <summary className={commonStyles.subtitle}>
                                 Cards selection
                             </summary>
                             <section className={styles.cardPanel}>
@@ -150,7 +155,9 @@ export function FlipScoreModal(
                                         <button
                                             key={card.id}
                                             style={{"--card-color": card.color} as React.CSSProperties}
-                                            className={`${styles.cardButton} ${selected ? styles.selected : ''}`}
+                                            className={`${commonStyles.secondaryButton} 
+                                                        ${styles.cardButton}
+                                                        ${selected ? styles.selected : ''}`}
                                             onClick={() => toggleCard(card.id)}>
                                             {card.id}
                                         </button>

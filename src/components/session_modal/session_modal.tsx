@@ -3,9 +3,11 @@ import { getPlayers } from "../../utils/player_storage";
 import { saveActiveSession } from "../../utils/session_storage";
 import { FadeInTransition } from "../transition/transitions";
 import { PlayerCard } from "../player_card/player_card";
-import type { Game } from "../../types/game";
 import {List} from "../../components/list/list"
+import type { Game } from "../../types/game";
 import type { GameSession } from "../../types/session";
+import commonStyles from "../../styles/common.module.css";
+import modalStyles from "../../styles/modal.module.css"
 import styles from "./session_modal.module.css";
 
 const STORAGE_KEY = "session-modal-selection";
@@ -102,14 +104,14 @@ export function SessionModal(
 
     return (
         <FadeInTransition>
-             <div className={styles.modalBackdrop} onClick={onClose}>
+             <div className={modalStyles.modalBackdrop} onClick={onClose}>
                  <div
-                    className={styles.modal}
+                    className={modalStyles.modalBase}
                     onClick={(e) => e.stopPropagation()}
                 >
                     <section className={styles.header}>
-                        <h1>Who will join the game?</h1>
-                        <p>Select {playerRangeText} : {playerCount} selected</p>
+                        <h1 className={modalStyles.modalTitle}>Who plays?</h1>
+                        <p className={commonStyles.text}>Select {playerRangeText} : {playerCount} selected</p>
                     </section>
 
                     <section className={styles.listContainer}>
@@ -146,11 +148,11 @@ export function SessionModal(
                     </section>
 
                     <div className={styles.actionPanel}>
-                        <button className={styles.action} onClick={onClose}>
+                        <button className={commonStyles.primaryButton} onClick={onClose}>
                             Cancel
                         </button>
 
-                        <button className={styles.action} onClick={handleStartSession} disabled={!isValidSelection}>
+                        <button className={commonStyles.primaryButton} onClick={handleStartSession} disabled={!isValidSelection}>
                             Start Session
                         </button>
                     </div>

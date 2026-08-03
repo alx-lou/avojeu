@@ -4,10 +4,10 @@ import { FadeInTransition } from "../../../transition/transitions"
 import { PlayerCard } from "../../../player_card/player_card"
 import { List } from "../../../list/list"
 import { FlipScoreModal } from "../score_modal/score_modal"
-import styles from "./score_tracker.module.css"
 import { saveActiveSession } from "../../../../utils/session_storage"
 import type { GameState } from "../../../../types/game_states"
-
+import commonStyles from "../../../../styles/common.module.css"
+import styles from "./score_tracker.module.css"
 
 type PlayerScoreProps = {
     playerScore: number
@@ -15,7 +15,7 @@ type PlayerScoreProps = {
 
 function PlayerScore ({playerScore} : PlayerScoreProps) {
     return (
-        <div className={styles.scoreDisplay}>
+        <div className={`${commonStyles.flexCenter} ${styles.scoreDisplay}`}>
             {playerScore} pts
         </div>
     )
@@ -65,7 +65,10 @@ export function FlipScoreTracker(
         <FadeInTransition>
             <div className={styles.scoreTracker}>
                 <section className={styles.actions}>
-                    <button onClick={() => setScoreModalOpen(true)}>+ Start round</button>
+                    <button 
+                        className={`${commonStyles.secondaryButton}
+                                    ${styles.newRoundButton}`}
+                        onClick={() => setScoreModalOpen(true)}>+ Start round</button>
                 </section>
                 <section className={styles.leaderboard}>
                     <List 

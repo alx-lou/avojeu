@@ -1,15 +1,26 @@
 :root {
+  /* Background and layer colors for visual hierarchy */
   --color-bg: #0F1217;
   --color-layer-1: #191E26;
   --color-border: #333A45;
   --color-input-bg: #0B0E12;
 
+  /* App color accent */
   --color-primary: #FF9F1A;
   --color-secondary: #ff941a;
 
+  /* Typography */
   --primary-font: 'MuseoModerno', sans-serif;
   --color-text: #efefef;
   --color-secondary-text: #b0b0b0;
+
+  --light-weight--text: 100;
+  --medium-weight-text: 400;
+  --heavy-weight-text: 600;
+
+  --small-size-text: 0.875rem;
+  --medium-size-text: 1rem;
+  --large-size-text: 1.25rem;
 
   color-scheme: light dark;
   
@@ -17,7 +28,7 @@
   margin: 0;
   
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: var(--medium-weight-text);
   color: var(--color-text);
   font-family: var(--primary-font);
 
@@ -31,12 +42,6 @@ html, body {
     margin: 0;
     height: 100%;
     background-color: var(--color-bg);
-}
-
-html {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 body {

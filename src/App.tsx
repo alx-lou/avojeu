@@ -4,17 +4,18 @@ import { GamePage } from "./pages/game_page/game_page"
 import { Routes, Route } from "react-router-dom"
 import { AnimatePresence } from "framer-motion"
 import { SessionPage } from "./pages/session_page/session_page"
+import { ROUTES } from "./routes/routes"
 import ErrorPage from "./pages/error_page/error_page"
 
 function App() {
     return (
         <AnimatePresence mode="wait">
             <Routes>
-                <Route path="/avojeu/" element={<HomePage />} />
-                <Route path="/avojeu/players" element={<PlayersPage />} />
-                <Route path="/avojeu/game/:id" element={<GamePage />} />
-                <Route path="/avojeu/session/:id" element={<SessionPage />} />
-                <Route path="/avojeu/error" element={<ErrorPage />} />
+                <Route path={ROUTES.HOME} element={<HomePage />} />
+                <Route path={ROUTES.PLAYERS} element={<PlayersPage />} />
+                <Route path={ROUTES.GAME} element={<GamePage />} />
+                <Route path={ROUTES.SESSION} element={<SessionPage />} />
+                <Route path={ROUTES.ERROR} element={<ErrorPage />} />
             </Routes>
         </AnimatePresence>
     )

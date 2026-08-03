@@ -3,6 +3,7 @@ import { List } from "../../components/list/list";
 import { FadeInTransition } from "../../components/transition/transitions";
 import { SessionModal } from "../../components/session_modal/session_modal";
 import { useLocation, useNavigate } from "react-router-dom";
+import { routePaths } from "../../routes/routes";
 import type { Game } from "../../types/game";
 import type { GameSession } from "../../types/session";
 import homeIcon from "../../assets/icons/home.svg";
@@ -30,7 +31,7 @@ export function GamePage(
     const [sessionModalOpen, setSessionModalOpen] = useState(false);
 
     const handleSessionSaved = (session: GameSession) => {
-        navigate(`/avojeu/session/${session.id}`, { state: { gameSession: session } });
+        navigate(routePaths.session(session.id), { state: { gameSession: session } });
     };
 
     if (!activeGame) {

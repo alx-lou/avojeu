@@ -1,6 +1,7 @@
 import type { Player } from "../../types/player"
 import { PlayerCard } from "../player_card/player_card"
 
+import commonStyles from "../../styles/common.module.css"
 import styles from "./team_card.module.css"
 
 
@@ -12,7 +13,7 @@ type TeamCardProps = {
 export function TeamCard({teamName, players}: TeamCardProps) {
     return (
         <details open className={styles.teamCard}>
-            <summary className={styles.teamName}>
+            <summary className={commonStyles.text}>
                 {teamName}
             </summary>
 

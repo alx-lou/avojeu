@@ -1,0 +1,61 @@
+.flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {  
+    font-size: var(--medium-size-text);
+    font-weight: var(--light-weight-text);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.subTitle {
+    font-size: var(--small-size-text);
+    font-weight: var(--medium-weight-text);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.text {
+    font-size: var(--small-size-text);
+    font-weight: var(--light-weight-text);
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.primaryButton {
+    background-color: var(--color-layer-1);
+    border: 1px solid var(--color-border);
+    border-radius: 50px;
+    font-family: var(--font-primary);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.secondaryButton {
+    background-color: var(--color-input-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 50px;
+    font-family: var(--font-primary);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.textInputField {
+    background-color: var(--color-input-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 50px;
+    padding: 0.5rem;
+    font-family: var(--font-primary);
+    font-size: 16px;
+    color: var(--color-text);
+    min-width: 0;
+}

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { FadeInTransition } from "../../../transition/transitions"
+import commonStyles from "../../../../styles/common.module.css"
 import styles from "./timer.module.css"
 
 const timerPreset = [5, 10, 15, 30, 60]
@@ -107,8 +108,9 @@ export function Timer() {
             <div className={styles.timer}>
 
                 <section className={styles.timeSetter}>
-                    <h1>Timer duration</h1>
+                    <h1 className={commonStyles.title}>Timer duration</h1>
                     <input
+                        className={`${commonStyles.textInputField}`}
                         type="number"
                         min="1"
                         step="1"
@@ -116,10 +118,14 @@ export function Timer() {
                         value={inputValue}
                         onChange={(event) => handleDurationChange(event.target.value)}
                     />
-                    <h1>Presets</h1>
+                    <h1 className={commonStyles.title}>Presets</h1>
                     <div className={styles.timePresets}>
                         {timerPreset.map((preset) => (
-                            <button key={preset} onClick={() => handlePresetSelection(preset)}>
+                            <button 
+                                key={preset}
+                                className={`${commonStyles.secondaryButton} 
+                                            ${styles.timerPresetButton}`}
+                                onClick={() => handlePresetSelection(preset)}>
                                 {preset}s
                             </button>
                         ))}
@@ -127,7 +133,8 @@ export function Timer() {
                 </section>
 
                 <section className={styles.chrono}>
-                    <div className={styles.timerVisual}>
+                    <div className={`${commonStyles.flexCenter} 
+                                     ${styles.timerVisual}`}>
                         <svg className={styles.progress} viewBox="0 0 100 100" aria-hidden="true">
                             <circle
                                 className={styles.progressTrack}
