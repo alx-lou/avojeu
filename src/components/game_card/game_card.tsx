@@ -20,7 +20,7 @@ export function GameCard(
         <div className={styles.card}>
             <img src={game.coverPath} alt={`${game.name} cover`} />
             <div className={styles.gameInfo}>
-                <h1 className={commonStyles.title}>
+                <h1 className={commonStyles.subTitle}>
                     {game.name}
                 </h1>
                 <div className={styles.tag}>
