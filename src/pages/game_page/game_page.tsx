@@ -2,11 +2,13 @@ import { useState } from "react";
 import { List } from "../../components/list/list";
 import { FadeInTransition } from "../../components/transition/transitions";
 import { SessionModal } from "../../components/session_modal/session_modal";
-import { useLocation, useNavigate } from "react-router-dom";
-import { routePaths } from "../../routes/routes";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { routePaths, ROUTES } from "../../routes/routes";
 import type { Game } from "../../types/game";
 import type { GameSession } from "../../types/session";
+import type { AppError } from "../../types/error";
 import homeIcon from "../../assets/icons/home.svg";
+import commonStyles from "../../styles/common.module.css";
 import styles from "./game_page.module.css";
 
 type GameLocationState = {
@@ -35,7 +37,11 @@ export function GamePage(
     };
 
     if (!activeGame) {
-        return <div>Game not found</div>;
+        const error: AppError = {
+            title: "Game not found",
+            message: "The game you are looking for does not exist."
+        }
+        return (<Navigate to={ROUTES.ERROR} replace state={error}/>)
     }
 
     const tagList = [...activeGame.tags];
@@ -48,12 +54,11 @@ export function GamePage(
     return (
         <FadeInTransition>
             <header className={styles.header}>
-
                 <div className={styles.cover}>
                     <img src={activeGame.coverPath} alt={activeGame.name} />
                 </div>
                 <div className={styles.gameInfo}>
-                    <h1>{activeGame.name}</h1>
+                    <h1 className={commonStyles.title}>{activeGame.name}</h1>
                     <div className={styles.tagList}>
                         <List
                             items={tagList}
@@ -72,12 +77,16 @@ export function GamePage(
 
             <section className={styles.actionPanel}>
                 <button
+                    className={commonStyles.primaryButton}
+                    style={{padding: "1rem"}}
                     onClick={() => navigate(-1)}
                     aria-label="Go back"
                 >
                     <img src={homeIcon} alt="Home" />
                 </button>
                 <button 
+                    className={commonStyles.primaryButton}
+                    style={{padding: "1rem"}}
                     disabled={activeGame.tools.length === 0}
                     onClick={() => setSessionModalOpen(true)}
                 >
@@ -86,8 +95,8 @@ export function GamePage(
             </section>
 
             <section className={styles.gameDescription}>
-                <h1>Description</h1>
-                <p>{activeGame.description}</p>
+                <h1 className={commonStyles.title}>Description</h1>
+                <p className={commonStyles.text}>{activeGame.description}</p>
             </section>
 
             {sessionModalOpen && (

@@ -14,7 +14,7 @@ export function SessionCard(
         <div className={styles.card}>
             <img src={gameSession.game.coverPath} alt={`${gameSession.game.name} cover`} />
             <div className={styles.gameInfo}>
-                <h1 className={commonStyles.title}>
+                <h1 className={commonStyles.subTitle}>
                     {gameSession.game.name}
                 </h1>
                 <div className={styles.avatarStack}>

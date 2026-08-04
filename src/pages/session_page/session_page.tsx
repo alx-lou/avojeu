@@ -6,6 +6,7 @@ import { getActiveSession, closeActiveSession } from "../../utils/session_storag
 import { ROUTES } from "../../routes/routes";
 import type { AppError } from "../../types/error";
 import HomeIcon from "../../assets/icons/home.svg"
+import commonStyles from "../../styles/common.module.css"
 import styles from "./session_page.module.css";
 
 
@@ -54,11 +55,19 @@ export function SessionPage() {
         <FadeInTransition>
             <div className={styles.page}>
                 <header className={styles.header}>
-                    <h1>{gameSession.game.name}</h1>
-                    <button type="button" onClick={() => navigate(ROUTES.HOME)}>
+                    <h1 className={commonStyles.title}>{gameSession.game.name}</h1>
+                    <button 
+                        className={`${commonStyles.primaryButton} 
+                                    ${styles.headerNavButton}`}
+                        type="button" 
+                        onClick={() => navigate(ROUTES.HOME)}>
                         <img src={HomeIcon} alt="home" />
                     </button>
-                    <button type="button" onClick={handleFinishSession}>
+                    <button 
+                        className={`${commonStyles.primaryButton} 
+                                    ${styles.headerNavButton}`}
+                        type="button" 
+                        onClick={handleFinishSession}>
                         {"Finish"}
                     </button>
                 </header>
@@ -66,6 +75,7 @@ export function SessionPage() {
                 <section className={styles.toolList}>
                     {gameSession.game.tools.map((toolName) => (
                         <button
+                            className={commonStyles.primaryButton}
                             key={toolName}
                             type="button"
                             onClick={() => setSelectedTool(toolName)}
